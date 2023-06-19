@@ -1,5 +1,10 @@
 <template>
-    <Navbar />
+    <div>
+        <Navbar />
+        <Deck />
+        <Card />
+        <Footer />
+    </div>  
 </template>
 
 <script>
