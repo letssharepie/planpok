@@ -1,3 +1,10 @@
 <template>
-    <div>HEJ</div>
+    <Navbar />
 </template>
+
+<script>
+
+</script>
+<style scoped>
+
+</style>
