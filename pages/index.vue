@@ -13,10 +13,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
-</style>
