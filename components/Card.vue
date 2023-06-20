@@ -19,7 +19,7 @@
 export default {
   props: {
     fibonacciNumber: {
-      type: Number,
+      type: [Number, String],
       required: true,
     },
   },
