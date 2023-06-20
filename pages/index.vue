@@ -1,21 +1,15 @@
 <template>
-  <div class="card-container">
-    <Card :fibonacciNumber="number" v-for="number in fibonacci" :key="number" />
+  <div>
+    <Deck />
   </div>
 </template>
 
 <script>
-import Card from "~/components/Card.vue";
-import fibonacci from "../static/fibonacci.json";
+import Deck from "~/components/Deck.vue";
 
 export default {
   components: {
-    Card,
-  },
-  data() {
-    return {
-      fibonacci: fibonacci,
-    };
+    Deck,
   },
 };
 </script>
@@ -24,6 +18,5 @@ export default {
 .card-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px;
 }
 </style>
