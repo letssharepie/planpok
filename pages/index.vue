@@ -1,54 +1,60 @@
 <template>
   <div class="container">
-    <b-row>
-      <Navbar class="navbar" />
-    </b-row>
-    <b-row>
-      <b-col cols="10">
-        <Deck />
-      </b-col>
+    <h1>Welcome to Planning Poker!</h1>
+    <b-button variant="primary" @click="createRoom">Create a room</b-button>
 
-      <b-col cols="2">
-        <Sidebar />
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <Footer />
-      </b-col>
-    </b-row>
+    <NicknameModal
+      :value="showModal"
+      @input="showModal = $event"
+      @nickname-submitted="handleNicknameSubmit"
+    />
   </div>
 </template>
 
 <script>
-import Deck from "~/components/Deck.vue";
-import Navbar from "~/components/Navbar.vue";
-import Sidebar from "~/components/Sidebar.vue";
-import Footer from "~/components/Footer.vue";
+import NicknameModal from "~/components/NicknameModal.vue";
 
 export default {
+  data() {
+    return {
+      showModal: false,
+      roomId: "",
+      nickname: "",
+    };
+  },
+  methods: {
+    createRoom() {
+      this.roomId = Date.now().toString();
+
+      // Show the nickname modal
+      this.showModal = true;
+    },
+    handleNicknameSubmit(nickname) {
+      if (nickname.trim() !== "") {
+        this.roomId = Date.now().toString();
+
+        this.nickname = nickname;
+
+        this.$router.push(`/${this.roomId}`);
+      }
+    },
+  },
   components: {
-    Deck,
-    Navbar,
-    Sidebar,
-    Footer,
+    NicknameModal,
   },
 };
 </script>
 
-<style>
+<style scoped>
 .container {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-.content {
-  display: flex;
-}
-
-.navbar {
-  width: 100%;
+h1 {
+  margin-bottom: 20px;
 }
 </style>
