@@ -36,7 +36,7 @@ git clone https://github.com/letssharepie/planpok.git
 
 2. Install the dependencies:
 ```shell
-cd planning-poker
+cd planpok
 npm install
 ```
 ### Usage:
